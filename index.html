@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secret Kitchen Star - Catering Order</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="container hero-content">
+      <div class="brand-badge">Reusable Catering Template</div>
+      <h1>Secret Kitchen Star</h1>
+      <p>
+        Select your items, set quantities, choose pickup or delivery, and send the order straight to WhatsApp.
+      </p>
+      <div class="hero-actions">
+        <a href="#menu-section" class="btn btn-primary">Start Order</a>
+        <a href="#order-section" class="btn btn-secondary">Go to Cart</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-grid">
+    <section class="left-panel" id="menu-section">
+      <div class="section-head">
+        <h2>Menu</h2>
+        <p>Choose items and quantities. Totals update automatically.</p>
+      </div>
+
+      <div class="category-tabs" id="categoryTabs"></div>
+      <div id="menuContainer" class="menu-grid"></div>
+    </section>
+
+    <aside class="right-panel" id="order-section">
+      <div class="sticky-card">
+        <div class="section-head">
+          <h2>Your Order</h2>
+          <p>Fill out the details and confirm on WhatsApp.</p>
+        </div>
+
+        <form id="customerForm" class="customer-form">
+          <div class="field">
+            <label for="customerName">Full Name</label>
+            <input type="text" id="customerName" placeholder="Enter customer name" required />
+          </div>
+
+          <div class="field">
+            <label for="customerPhone">Phone Number</label>
+            <input type="text" id="customerPhone" placeholder="e.g. +1 443 000 0000" required />
+          </div>
+
+          <div class="field">
+            <label for="orderDate">Order Date</label>
+            <input type="date" id="orderDate" required />
+          </div>
+
+          <div class="field">
+            <label for="orderTime">Preferred Time</label>
+            <input type="time" id="orderTime" required />
+          </div>
+
+          <div class="field">
+            <label for="orderType">Order Type</label>
+            <select id="orderType">
+              <option value="pickup">Pickup</option>
+              <option value="delivery">Delivery</option>
+            </select>
+          </div>
+
+          <div class="field" id="addressField">
+            <label for="customerAddress">Delivery Address</label>
+            <textarea id="customerAddress" rows="3" placeholder="Enter full delivery address"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="notes">Notes</label>
+            <textarea id="notes" rows="3" placeholder="Any extra request? spice level, pickup note, etc."></textarea>
+          </div>
+        </form>
+
+        <div class="summary-box">
+          <h3>Order Summary</h3>
+          <div id="cartItems" class="cart-items">
+            <p class="empty-text">No items selected yet.</p>
+          </div>
+
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <strong id="subtotal">$0.00</strong>
+          </div>
+          <div class="summary-row">
+            <span>Delivery Fee</span>
+            <strong id="deliveryFee">$0.00</strong>
+          </div>
+          <div class="summary-row total-row">
+            <span>Total</span>
+            <strong id="grandTotal">$0.00</strong>
+          </div>
+          <div class="summary-row eta-row">
+            <span>Estimated Time</span>
+            <strong id="estimatedTime">-</strong>
+          </div>
+        </div>
+
+        <div class="action-stack">
+          <button id="sendWhatsAppBtn" class="btn btn-whatsapp" type="button">
+            Confirm & Send to WhatsApp
+          </button>
+          <button id="clearOrderBtn" class="btn btn-light" type="button">
+            Clear Order
+          </button>
+        </div>
+
+        <div class="small-note">
+          Prices may change with market price. Fish and ingredient-based items may vary by availability.
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="menu-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
